@@ -34,7 +34,7 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <div class="logo">
-                <h1><a href="index.html"><span><i>ServisKita</i></span></a></h1>
+                <h1><a href="#"><span><i>ServisKita</i></span></a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
@@ -54,21 +54,20 @@
                     </li>
                     @else
                     <li>
-                        <a class="nav-link" href="{{ route('login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                        <a class="nav-link" href="{{ route('login') }}" target="_blank" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                             Log in
                         </a>
                     </li>
 
                     @if (Route::has('register'))
                     <li>
-                        <a class="nav-link" href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                        <a class="nav-link" href="{{ route('register') }}" target="_blank" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                             Register
                         </a>
                     </li>
                     @endif
                     @endauth
                     @endif
-                    </li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -132,7 +131,8 @@
                 </div>
 
             </div>
-        </section><!-- End About Section -->
+        </section>
+        <!-- End About Section -->
 
         <!-- ======= Features Section ======= -->
         <section id="services" class="features">
@@ -171,7 +171,8 @@
                 </div>
 
             </div>
-        </section><!-- End Features Section -->
+        </section>
+        <!-- End Features Section -->
 
         <!-- ======= Counts Section ======= -->
         <section id="counts" class="counts">
@@ -214,7 +215,8 @@
                 </div>
 
             </div>
-        </section><!-- End Counts Section -->
+        </section>
+        <!-- End Counts Section -->
 
         <!-- ======= F.A.Q Section ======= -->
         <section id="faq" class="faq section-bg">
@@ -276,7 +278,8 @@
                 </div>
 
             </div>
-        </section><!-- End F.A.Q Section -->
+        </section>
+        <!-- End F.A.Q Section -->
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
@@ -308,13 +311,10 @@
                                 <h4>Call:</h4>
                                 <p>+62-823-6754-7127</p>
                             </div>
-
                         </div>
-
                     </div>
 
                     <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
-
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="row">
                                 <div class="col-md-6 form-group">
@@ -337,15 +337,14 @@
                             </div>
                             <div class="text-center"><button type="submit">Send Message</button></div>
                         </form>
-
                     </div>
-
                 </div>
-
             </div>
-        </section><!-- End Contact Section -->
+        </section>
+        <!-- End Contact Section -->
 
-    </main><!-- End #main -->
+    </main>
+    <!-- End #main -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -356,7 +355,8 @@
                 &copy; Copyright <strong><span>PT. Asia Makmur Abadi</span></strong>. All Rights Reserved
             </div>
         </div>
-    </footer><!-- End Footer -->
+    </footer>
+    <!-- End Footer -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <div id="preloader"></div>
