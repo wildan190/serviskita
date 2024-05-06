@@ -1,5 +1,4 @@
 <x-guest-layout>
-    <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-center header-transparent">
         <div class="container d-flex align-items-center justify-content-between">
             <div class="logo">
@@ -117,7 +116,7 @@
                     <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
                             <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-                            <h3><a href="">Magni Dolores</a></h3>
+                            <h3><a href="">Magni Dolares</a></h3>
                         </div>
                     </div>
                 </div>
@@ -274,6 +273,4 @@
             </div>
         </div>
     </footer>
-
-    
 </x-guest-layout>
