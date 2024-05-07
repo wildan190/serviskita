@@ -41,7 +41,20 @@
     </header>
 
     <section id="hero">
-        <!-- Hero section content goes here -->
+        <!-- <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+            <defs>
+                <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+            </defs>
+            <g class="wave1">
+                <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+            </g>
+            <g class="wave2">
+                <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+            </g>
+            <g class="wave3">
+                <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+            </g>
+        </svg> -->
     </section>
 
     <main id="main">
@@ -56,12 +69,18 @@
 
                                 <div>
                                     <label for="email" class="block text-gray-700">{{ __('Email') }}</label>
-                                    <input id="email" type="email" class="form-input mt-1 block w-full rounded-md border-gray-300" name="email" :value="old('email')" placeholder="Email" required autofocus autocomplete="email">
+                                    <input id="email" type="email" class="form-input mt-1 block w-full rounded-md border-gray-300 @error('email') border-red-500 @enderror" name="email" :value="old('email')" placeholder="Email" required autofocus autocomplete="email">
+                                    @error('email')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 <div>
                                     <label for="password" class="block text-gray-700">{{ __('Password') }}</label>
-                                    <input id="password" type="password" class="form-input mt-1 block w-full rounded-md border-gray-300" name="password" placeholder="Password" required autocomplete="current-password">
+                                    <input id="password" type="password" class="form-input mt-1 block w-full rounded-md border-gray-300 @error('password') border-red-500 @enderror" name="password" placeholder="Password" required autocomplete="current-password">
+                                    @error('password')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="flex items-center mt-4">
@@ -92,7 +111,6 @@
         </section>
     </main>
 
-
     <footer id="footer">
         <div class="container">
             <div class="copyright">
@@ -100,4 +118,5 @@
             </div>
         </div>
     </footer>
+
 </x-guest-layout>
