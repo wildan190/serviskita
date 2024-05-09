@@ -22,6 +22,7 @@
 
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')
+            @include('sweetalert::alert')
 
             <!-- Page Heading -->
             @if (isset($header))

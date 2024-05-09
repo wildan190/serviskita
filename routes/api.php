@@ -16,6 +16,7 @@ Route::middleware(['auth:sanctum', 'CheckRole:superadmin'])->group(function () {
         Route::get('/users/{user}', [UserController::class, 'show']);
         Route::put('/users/{user}', [UserController::class, 'update']);
         Route::delete('/users/{user}', [UserController::class, 'destroy']);
+        Route::get('/users/search', [UserController::class, 'search']);
     });
 });
 

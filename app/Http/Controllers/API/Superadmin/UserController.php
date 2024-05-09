@@ -28,7 +28,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,'.$user->id,
-            'role' => 'required|in:superadmin,admin,user' // Atur peran yang diperbolehkan
+            'role' => 'required|in:superadmin,admin,user'
         ]);
 
         if ($validator->fails()) {
@@ -48,5 +48,16 @@ class UserController extends Controller
     {
         $user->delete();
         return response()->json(['message' => 'User deleted successfully']);
+    }
+
+    // Menampilkan daftar pengguna berdasarkan keyword
+    public function search(Request $request)
+    {
+        $keyword = $request->get('keyword');
+        $users = User::where('name', 'LIKE', "%$keyword%")
+                    ->orWhere('email', 'LIKE', "%$keyword%")
+                    ->get();
+
+        return response()->json($users);
     }
 }
