@@ -23,6 +23,6 @@ class CheckRole
             }
         }
 
-        return redirect('/home')->with('error', 'Unauthorized.');
+        return redirect('/dashboard')->with('error', 'Unauthorized.');
     }
 }

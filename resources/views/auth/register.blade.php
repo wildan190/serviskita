@@ -70,15 +70,23 @@
 
                                 <div>
                                     <label for="name" class="block text-gray-700">{{ __('Name') }}</label>
-                                    <input id="name" type="text" class="form-input mt-1 block w-full rounded-md border-gray-300 @error('name') border-red-500 @enderror" name="name" :value="old('name')" required autofocus autocomplete="name">
+                                    <input id="name" type="text" class="form-input mt-1 block w-full rounded-md border-gray-300 @error('name') border-red-500 @enderror" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Your Name">
                                     @error('name')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div>
+                                    <label for="username" class="block text-gray-700">{{ __('Username') }}</label>
+                                    <input id="username" type="text" class="form-input mt-1 block w-full rounded-md border-gray-300 @error('username') border-red-500 @enderror" name="username" :value="old('username')" required autofocus autocomplete="username" placeholder="Your Username">
+                                    @error('username')
                                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
 
                                 <div class="mt-4">
                                     <label for="email" class="block text-gray-700">{{ __('Email') }}</label>
-                                    <input id="email" type="email" class="form-input mt-1 block w-full rounded-md border-gray-300 @error('email') border-red-500 @enderror" name="email" :value="old('email')" required autocomplete="username">
+                                    <input id="email" type="email" class="form-input mt-1 block w-full rounded-md border-gray-300 @error('email') border-red-500 @enderror" name="email" :value="old('email')" required autocomplete="email" placeholder="Your Email">
                                     @error('email')
                                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                                     @enderror
@@ -86,7 +94,7 @@
 
                                 <div class="mt-4">
                                     <label for="password" class="block text-gray-700">{{ __('Password') }}</label>
-                                    <input id="password" type="password" class="form-input mt-1 block w-full rounded-md border-gray-300 @error('password') border-red-500 @enderror" name="password" required autocomplete="new-password">
+                                    <input id="password" type="password" class="form-input mt-1 block w-full rounded-md border-gray-300 @error('password') border-red-500 @enderror" name="password" required autocomplete="new-password" placeholder="Your Password">
                                     @error('password')
                                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                                     @enderror
@@ -94,7 +102,7 @@
 
                                 <div class="mt-4">
                                     <label for="password_confirmation" class="block text-gray-700">{{ __('Confirm Password') }}</label>
-                                    <input id="password_confirmation" type="password" class="form-input mt-1 block w-full rounded-md border-gray-300" name="password_confirmation" required autocomplete="new-password">
+                                    <input id="password_confirmation" type="password" class="form-input mt-1 block w-full rounded-md border-gray-300" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Your Password">
                                 </div>
 
                                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
