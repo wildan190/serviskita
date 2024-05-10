@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuperAdmin\SuperadminController;
+use App\Http\Controllers\SuperAdmin\UserDetailsController;
 
 Route::get('/', function () {
     return view('home');
@@ -23,4 +24,5 @@ Route::prefix('superadmin')->middleware(['auth:sanctum', config('jetstream.auth_
     Route::get('/users/search', [SuperadminController::class, 'search'])->name('superadmin.users.search'); // Pencarian pengguna
     Route::get('/users/{user}/edit', [SuperadminController::class, 'edit'])->name('superadmin.users.edit'); // Form edit pengguna
     Route::put('/users/{user}', [SuperadminController::class, 'update'])->name('superadmin.users.update'); // Proses update pengguna
+
 });
