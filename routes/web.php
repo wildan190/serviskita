@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuperAdmin\SuperadminController;
 use App\Http\Controllers\SuperAdmin\SuperadminCategoryController;
+use App\Http\Controllers\UserDetailsController;
 
 Route::get('/', function () {
     return view('home');
@@ -30,7 +31,14 @@ Route::prefix('superadmin')->middleware(['auth:sanctum', config('jetstream.auth_
     Route::get('categories/{id}', [SuperadminCategoryController::class, 'show'])->name('superadmin.categories.show');
     Route::put('categories/{id}', [SuperadminCategoryController::class, 'update'])->name('superadmin.categories.update');
     Route::delete('categories/{id}', [SuperadminCategoryController::class, 'destroy'])->name('superadmin.categories.destroy');
+});
 
-    
 
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user-details', [UserDetailsController::class, 'index'])->name('user_details.index');
+    Route::get('/user-details/create', [UserDetailsController::class, 'create'])->name('user_details.create');
+    Route::get('/user-details/{id}', [UserDetailsController::class, 'show'])->name('user_details.show');
+    Route::post('/user-details', [UserDetailsController::class, 'store'])->name('user_details.store');
+    Route::put('/user-details/{id}', [UserDetailsController::class, 'update'])->name('user_details.update');
+    Route::delete('/user-details/{id}', [UserDetailsController::class, 'destroy'])->name('user_details.destroy');
 });

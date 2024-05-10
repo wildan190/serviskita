@@ -102,7 +102,10 @@
                             </div>
 
                             <x-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('Profile Account') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link href="{{ route('user_details.index') }}">
+                                {{ __('User Details') }}
                             </x-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -166,13 +169,18 @@
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
+                    {{ __('Profile Account') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('user_details.index') }}" :active="request()->routeIs('user_details.index')">
+                    {{ __('User Details') }}
                 </x-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                @if(Auth::user()->role === 'superadmin')
                 <x-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
                     {{ __('API Tokens') }}
                 </x-responsive-nav-link>
+                @endif
                 @endif
 
                 <!-- Authentication -->

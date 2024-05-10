@@ -62,7 +62,7 @@
             <div class="container mx-auto">
                 <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-xl">
                     <div class="md:flex">
-                        <div class="w-full p-4 px-6 py-10">
+                        <div class="w-full p-8 px-12 py-20">
                             <h2 class="text-center font-semibold text-2xl mb-6">{{ __('Log in') }}</h2>
                             <form method="POST" action="{{ route('login') }}" class="space-y-4">
                                 @csrf
