@@ -9,11 +9,21 @@ class SuperadminCategoryController extends Controller
 {
     protected $categoryRepository;
 
+    /**
+     * Constructor for the class.
+     *
+     * @param CategoryRepositoryInterface $categoryRepository The category repository interface
+     */
     public function __construct(CategoryRepositoryInterface $categoryRepository)
     {
         $this->categoryRepository = $categoryRepository;
     }
 
+    /**
+     * Retrieves all categories from the category repository and returns them to the view 'superadmin.categories.index'.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $categories = $this->categoryRepository->all();

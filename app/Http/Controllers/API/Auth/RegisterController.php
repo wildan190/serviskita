@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
+
+    /**
+     * Register a new user.
+     *
+     * @param Request $request The incoming request data.
+     * @throws \Illuminate\Validation\ValidationException When validation fails.
+     * @return \Illuminate\Http\JsonResponse The JSON response with the token and status code.
+     */
+    
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -19,6 +28,8 @@ class RegisterController extends Controller
             'password' => 'required|string|min:8',
         ]);
 
+        # Return a 422 Unprocessable Entity response containing the validation errors
+        # if the validation fails.
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 422);
         }
@@ -30,6 +41,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        // Generate a new personal access token for the user.
         $token = $user->createToken('api_token')->plainTextToken;
 
         return response()->json(['token' => $token], 201);

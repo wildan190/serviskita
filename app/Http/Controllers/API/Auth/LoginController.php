@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    /**
+     * Logs in a user with the provided credentials and returns an API token if successful.
+     *
+     * @param Request $request The HTTP request object containing the email and password.
+     * @return \Illuminate\Http\JsonResponse The JSON response containing the API token or an error message.
+     */
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
