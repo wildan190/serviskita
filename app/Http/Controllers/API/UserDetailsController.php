@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\UserDetails\UserDetailsRepositoryInterface;
+use App\Models\UserDetails;
 
 class UserDetailsController extends Controller
 {
@@ -36,6 +37,15 @@ class UserDetailsController extends Controller
             'User_id' => 'required|integer|exists:users,id',
         ]);
 
+        // Check if user details already exists
+        $existingUserDetails = UserDetails::where('UserPhoneNumber', $request->UserPhoneNumber)
+            ->where('User_id', $request->User_id)
+            ->first();
+
+        if ($existingUserDetails) {
+            return response()->json(['error' => 'User details already exist for this user.'], 400);
+        }
+
         $userDetails = $this->userDetailsRepository->create($validatedData);
         return response()->json(['data' => $userDetails], 201);
     }
@@ -60,6 +70,16 @@ class UserDetailsController extends Controller
             'PostalCode' => 'required|string',
             'User_id' => 'required|integer|exists:users,id',
         ]);
+
+        // Check if user details already exists
+        $existingUserDetails = UserDetails::where('UserPhoneNumber', $request->UserPhoneNumber)
+            ->where('User_id', $request->User_id)
+            ->where('id', '!=', $id)
+            ->first();
+
+        if ($existingUserDetails) {
+            return response()->json(['error' => 'User details already exist for this user.'], 400);
+        }
 
         $userDetails = $this->userDetailsRepository->update($id, $validatedData);
         return response()->json(['data' => $userDetails], 200);
