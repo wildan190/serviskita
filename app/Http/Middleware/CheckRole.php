@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckRole
 {
+    /**
+     * Handle an incoming request.
+     *
+     * @param Request $request The incoming request.
+     * @param Closure $next The next middleware in the pipeline.
+     * @param mixed ...$roles The roles to check against.
+     * @return mixed The response from the next middleware or a redirect response.
+     */
     public function handle(Request $request, Closure $next, ...$roles)
     {
         if (!Auth::check()) {

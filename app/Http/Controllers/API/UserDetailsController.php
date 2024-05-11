@@ -11,17 +11,34 @@ class UserDetailsController extends Controller
 {
     protected $userDetailsRepository;
 
+    /**
+     * Constructor for the class.
+     *
+     * @param UserDetailsRepositoryInterface $userDetailsRepository The user details repository instance.
+     */
     public function __construct(UserDetailsRepositoryInterface $userDetailsRepository)
     {
         $this->userDetailsRepository = $userDetailsRepository;
     }
 
+    /**
+     * Retrieves all user details and returns them as a JSON response.
+     *
+     * @return \Illuminate\Http\JsonResponse The JSON response containing the user details.
+     */
     public function index()
     {
         $userDetails = $this->userDetailsRepository->All();
         return response()->json(['data' => $userDetails], 200);
     }
 
+    /**
+     * Stores user details if they do not already exist and returns the created user details.
+     *
+     * @param Request $request The HTTP request object containing the user details to store.
+     * @throws \Illuminate\Validation\ValidationException when validation fails.
+     * @return \Illuminate\Http\JsonResponse The JSON response containing the created user details, or an error message if the user details already exist.
+     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -50,12 +67,25 @@ class UserDetailsController extends Controller
         return response()->json(['data' => $userDetails], 201);
     }
 
+    /**
+     * Retrieves and returns the user details with the specified ID.
+     *
+     * @param int $id The ID of the user details to retrieve.
+     * @return \Illuminate\Http\JsonResponse The JSON response containing the user details.
+     */
     public function show($id)
     {
         $userDetails = $this->userDetailsRepository->find($id);
         return response()->json(['data' => $userDetails], 200);
     }
 
+    /**
+     * Update the user details with the given ID.
+     *
+     * @param Request $request The HTTP request object containing the updated user details.
+     * @param int $id The ID of the user details to update.
+     * @return \Illuminate\Http\JsonResponse The JSON response containing the updated user details, or an error message if the user details already exist.
+     */
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
@@ -85,6 +115,12 @@ class UserDetailsController extends Controller
         return response()->json(['data' => $userDetails], 200);
     }
 
+    /**
+     * Deletes user details by ID.
+     *
+     * @param int $id The ID of the user details to delete.
+     * @return \Illuminate\Http\JsonResponse The JSON response with a success message.
+     */
     public function destroy($id)
     {
         $this->userDetailsRepository->delete($id);

@@ -11,6 +11,11 @@ class Index extends Component
     public $isOpen = 0;
     public $editId;
 
+    /**
+     * Render the view for the user details index page.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
     public function render()
     {
         $this->userDetails = UserDetails::whereHas('user', function ($query) {
@@ -19,6 +24,9 @@ class Index extends Component
         return view('livewire.user-details.index');
     }
 
+    /**
+     * A function to create new user details.
+     */
     public function create()
     {
         if (UserDetails::where('User_id', auth()->user()->id)->exists()) {
@@ -30,6 +38,11 @@ class Index extends Component
     }
 
 
+    /**
+     * Store the user details in the database.
+     *
+     * @return void
+     */
     public function store()
     {
         $validatedData = $this->validate([
@@ -54,6 +67,13 @@ class Index extends Component
         $this->resetInputFields();
     }
 
+    /**
+     * Edit a user's details based on the provided ID.
+     *
+     * @param datatype $id description
+     * @throws Some_Exception_Class description of exception
+     * @return Some_Return_Value
+     */
     public function edit($id)
     {
         $this->editId = $id;
@@ -73,6 +93,13 @@ class Index extends Component
         $this->openModal();
     }
 
+    /**
+     * Update the user details with the given ID.
+     *
+     * @param datatype $paramname description
+     * @throws Some_Exception_Class description of exception
+     * @return Some_Return_Value
+     */
     public function update()
     {
         $validatedData = $this->validate([
@@ -98,22 +125,40 @@ class Index extends Component
         $this->resetInputFields();
     }
 
+    /**
+     * Deletes a user detail by ID and flashes a success message.
+     *
+     * @param int $id The ID of the user detail to delete.
+     * @return void
+     */
     public function delete($id)
     {
         UserDetails::find($id)->delete();
         session()->flash('message', 'User details deleted successfully.');
     }
 
+    /**
+     * Opens the modal by setting the isOpen flag to true.
+     *
+     */
     public function openModal()
     {
         $this->isOpen = true;
     }
 
+    /**
+     * Closes the modal by setting the isOpen flag to false.
+     *
+     */
     public function closeModal()
     {
         $this->isOpen = false;
     }
 
+    /**
+     * Reset all input fields to their initial values.
+     *
+     */
     private function resetInputFields()
     {
         $this->UserBirthDate = '';
