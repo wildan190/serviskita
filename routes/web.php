@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuperAdmin\SuperadminController;
 use App\Http\Controllers\SuperAdmin\SuperadminCategoryController;
+use App\Http\Controllers\Admin\ProductServicesController;
 use App\Http\Controllers\UserDetailsController;
 
 Route::get('/', function () {
@@ -31,6 +32,17 @@ Route::prefix('superadmin')->middleware(['auth:sanctum', config('jetstream.auth_
     Route::get('categories/{id}', [SuperadminCategoryController::class, 'show'])->name('superadmin.categories.show');
     Route::put('categories/{id}', [SuperadminCategoryController::class, 'update'])->name('superadmin.categories.update');
     Route::delete('categories/{id}', [SuperadminCategoryController::class, 'destroy'])->name('superadmin.categories.destroy');
+});
+
+Route::middleware(['auth:sanctum', 'CheckRole:admin'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('product-services', [ProductServicesController::class, 'index'])->name('admin.product_services.index');
+        Route::get('product-services/create', [ProductServicesController::class, 'create'])->name('admin.product_services.create');
+        Route::post('product-services', [ProductServicesController::class, 'store'])->name('admin.product_services.store');
+        Route::get('product-services/{id}', [ProductServicesController::class, 'show'])->name('admin.product_services.show');
+        Route::put('product-services/{id}', [ProductServicesController::class, 'update'])->name('admin.product_services.edit');
+        Route::delete('product-services/{id}', [ProductServicesController::class, 'destroy'])->name('admin.product_services.destroy');
+    });
 });
 
 

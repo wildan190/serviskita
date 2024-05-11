@@ -6,6 +6,7 @@ use App\Http\Controllers\API\Auth\RegisterController;
 use App\Http\Controllers\API\Auth\LoginController;
 use App\Http\Controllers\API\Superadmin\UserController;
 use App\Http\Controllers\API\Superadmin\SuperadminCategoryController;
+use App\Http\Controllers\API\Admin\ProductServicesController;
 use App\Http\Controllers\API\UserDetailsController;
 
 Route::post('/register', [RegisterController::class, 'register']);
@@ -24,6 +25,16 @@ Route::middleware(['auth:sanctum', 'CheckRole:superadmin'])->group(function () {
         Route::get('categories/{id}', [SuperadminCategoryController::class, 'show']);
         Route::put('categories/{id}', [SuperadminCategoryController::class, 'update']);
         Route::delete('categories/{id}', [SuperadminCategoryController::class, 'destroy']);
+    });
+});
+
+Route::middleware(['auth:sanctum', 'CheckRole:admin'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('product-services', [ProductServicesController::class, 'index']);
+        Route::post('product-services', [ProductServicesController::class, 'store']);
+        Route::get('product-services/{id}', [ProductServicesController::class, 'show']);
+        Route::put('product-services/{id}', [ProductServicesController::class, 'update']);
+        Route::delete('product-services/{id}', [ProductServicesController::class, 'destroy']);
     });
 });
 
