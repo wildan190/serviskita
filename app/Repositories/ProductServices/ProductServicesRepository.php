@@ -15,7 +15,11 @@ class ProductServicesRepository implements ProductServicesRepositoryInterface
 
     public function all()
     {
-        return $this->model->all();
+        $username = auth()->user()->username;
+
+        return $this->model->whereHas('user', function ($query) use ($username) {
+            $query->where('username', $username);
+        })->get();
     }
 
     public function find($id)

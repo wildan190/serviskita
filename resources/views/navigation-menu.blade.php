@@ -20,6 +20,11 @@
                         {{ __('Category Management') }}
                     </x-nav-link>
                     @endif
+                    @if(Auth::user()->role === 'admin')
+                    <x-nav-link href="{{ route('admin.product_services.index') }}" :active="request()->routeIs('admin.product_services.index')">
+                        {{ __('Product Services') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 

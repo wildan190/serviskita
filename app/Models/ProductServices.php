@@ -13,11 +13,7 @@ class ProductServices extends Model
         'ServiceName',
         'Category_id',
         'ServicePrice',
-        'Rating',
-        'Feedback',
         'User_id',
-        'AdditionalService',
-        'AdditionalServicePrice'
     ];
 
     /**

@@ -1,5 +1,3 @@
-<!-- resources/views/livewire/user-details/index.blade.php -->
-
 <div class="bg-gradient-to-br from-white-100 to-gray-300">
     <div class="container mx-auto px-4 py-16">
         <div class="bg-white rounded-lg shadow-md p-6">

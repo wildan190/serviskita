@@ -27,11 +27,7 @@ class ProductServicesController extends Controller
             'ServiceName' => 'required|string',
             'Category_id' => 'required|exists:categories,id',
             'ServicePrice' => 'required|numeric',
-            'Rating' => 'nullable|integer|min:1|max:5',
-            'Feedback' => 'nullable|string',
             'User_id' => 'required|exists:users,id',
-            'AdditionalService' => 'nullable|string',
-            'AdditionalServicePrice' => 'nullable|numeric',
         ]);
 
         $productService = $this->productServicesRepository->create($validatedData);
@@ -51,11 +47,7 @@ class ProductServicesController extends Controller
             'ServiceName' => 'string',
             'Category_id' => 'exists:categories,id',
             'ServicePrice' => 'numeric',
-            'Rating' => 'nullable|integer|min:1|max:5',
-            'Feedback' => 'nullable|string',
             'User_id' => 'exists:users,id',
-            'AdditionalService' => 'nullable|string',
-            'AdditionalServicePrice' => 'nullable|numeric',
         ]);
 
         $productService = $this->productServicesRepository->update($id, $validatedData);

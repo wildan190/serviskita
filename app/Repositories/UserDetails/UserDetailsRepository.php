@@ -25,7 +25,11 @@ class UserDetailsRepository implements UserDetailsRepositoryInterface
      */
     public function All()
     {
-        return $this->model->all();
+        $username = auth()->user()->username;
+
+        return $this->model->whereHas('user', function ($query) use ($username) {
+            $query->where('username', $username);
+        })->get();
     }
 
     /**
