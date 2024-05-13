@@ -22,10 +22,10 @@ Route::middleware([
 
 Route::prefix('superadmin')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'CheckRole:superadmin'])->group(function () {
     // Route::get('/dashboard', [SuperadminController::class, 'index'])->name('superadmin.dashboard');
-    Route::get('/users', [SuperadminController::class, 'index'])->name('superadmin.users.index'); // Daftar pengguna
-    Route::get('/users/search', [SuperadminController::class, 'search'])->name('superadmin.users.search'); // Pencarian pengguna
-    Route::get('/users/{user}/edit', [SuperadminController::class, 'edit'])->name('superadmin.users.edit'); // Form edit pengguna
-    Route::put('/users/{user}', [SuperadminController::class, 'update'])->name('superadmin.users.update'); // Proses update pengguna
+    Route::get('/users', [SuperadminController::class, 'index'])->name('superadmin.users.index');
+    Route::get('/users/search', [SuperadminController::class, 'search'])->name('superadmin.users.search');
+    Route::get('/users/{user}/edit', [SuperadminController::class, 'edit'])->name('superadmin.users.edit');
+    Route::put('/users/{user}', [SuperadminController::class, 'update'])->name('superadmin.users.update');
 
     Route::get('categories', [SuperadminCategoryController::class, 'index'])->name('superadmin.categories.index');
     Route::post('categories', [SuperadminCategoryController::class, 'store'])->name('superadmin.categories.store');
@@ -44,7 +44,6 @@ Route::middleware(['auth:sanctum', 'CheckRole:admin'])->group(function () {
         Route::delete('product-services/{id}', [ProductServicesController::class, 'destroy'])->name('admin.product_services.destroy');
     });
 });
-
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user-details', [UserDetailsController::class, 'index'])->name('user_details.index');
