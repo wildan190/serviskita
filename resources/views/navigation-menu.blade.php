@@ -27,9 +27,7 @@
                         {{ __('Product Services') }}
                     </x-nav-link>
                     @else
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Product Services') }}
-                    </x-nav-link>
+                    <!-- Masih Kosong -->
                     @endif
                 </div>
             </div>

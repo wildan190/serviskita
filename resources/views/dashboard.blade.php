@@ -9,14 +9,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 @if(Auth::user()->role === 'superadmin')
-                <p>Selamat datang, Superadmin!</p>
-                <!-- Tambahkan tampilan yang spesifik untuk superadmin di sini -->
+                <x-welcome />
                 @elseif(Auth::user()->role === 'admin')
-                <p>Selamat datang, Admin!</p>
-                <!-- Tambahkan tampilan yang spesifik untuk admin di sini -->
+                <x-welcome />
                 @else
                 <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <p>Welcome User</p>
+                @livewire('dashboard')
                 </div>
                 @endif
             </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\SuperAdmin\SuperadminController;
 use App\Http\Controllers\SuperAdmin\SuperadminCategoryController;
 use App\Http\Controllers\Admin\ProductServicesController;
 use App\Http\Controllers\UserDetailsController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('home');
@@ -52,4 +53,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/user-details', [UserDetailsController::class, 'store'])->name('user_details.store');
     Route::put('/user-details/{id}', [UserDetailsController::class, 'update'])->name('user_details.update');
     Route::delete('/user-details/{id}', [UserDetailsController::class, 'destroy'])->name('user_details.destroy');
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });

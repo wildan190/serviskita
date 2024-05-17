@@ -46,7 +46,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/user-details/{id}', [UserDetailsController::class, 'update']);
     Route::delete('/user-details/{id}', [UserDetailsController::class, 'destroy']);
 
-    // Route::get('dashboard', [DashboardController::class, 'index']);
+    Route::get('dashboard', [DashboardController::class, 'index']);
 });
 
 Route::get('/user', function (Request $request) {
