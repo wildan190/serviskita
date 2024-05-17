@@ -15,8 +15,9 @@
                 <p>Selamat datang, Admin!</p>
                 <!-- Tambahkan tampilan yang spesifik untuk admin di sini -->
                 @else
-                <p>Selamat datang, User!</p>
-                <!-- Tambahkan tampilan yang spesifik untuk user di sini -->
+                <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <p>Welcome User</p>
+                </div>
                 @endif
             </div>
         </div>

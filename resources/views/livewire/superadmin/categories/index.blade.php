@@ -21,7 +21,7 @@
                         <div>
                             <label for="CategoryDescription" class="block text-sm font-medium text-gray-700">Description:</label>
                             <div class="mt-1">
-                                <textarea wire:model.defer="CategoryDescription" id="CategoryDescription" class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Category Description" required></textarea>
+                                <textarea wire:model.defer="CategoryDescription" id="CategoryDescription" class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Category Description"></textarea>
                                 @error('description') <span class="error text-red-500 text-xs mt-2">{{ $message }}</span> @enderror
                             </div>
                         </div>

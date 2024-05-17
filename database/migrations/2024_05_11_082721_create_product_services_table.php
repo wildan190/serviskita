@@ -18,7 +18,7 @@ class CreateProductServicesTable extends Migration
             $table->string('ServiceName');
             $table->unsignedBigInteger('Category_id');
             $table->foreign('Category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->decimal('ServicePrice', 8, 2);
+            $table->decimal('ServicePrice', 10, 2);
             $table->unsignedInteger('Rating')->nullable();
             $table->text('Feedback')->nullable();
             $table->unsignedBigInteger('User_id');

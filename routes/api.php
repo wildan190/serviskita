@@ -7,6 +7,7 @@ use App\Http\Controllers\API\Auth\LoginController;
 use App\Http\Controllers\API\Superadmin\UserController;
 use App\Http\Controllers\API\Superadmin\SuperadminCategoryController;
 use App\Http\Controllers\API\Admin\ProductServicesController;
+use App\Http\Controllers\API\DashboardController;
 use App\Http\Controllers\API\UserDetailsController;
 
 Route::post('/register', [RegisterController::class, 'register']);
@@ -44,6 +45,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/user-details', [UserDetailsController::class, 'store']);
     Route::put('/user-details/{id}', [UserDetailsController::class, 'update']);
     Route::delete('/user-details/{id}', [UserDetailsController::class, 'destroy']);
+
+    // Route::get('dashboard', [DashboardController::class, 'index']);
 });
 
 Route::get('/user', function (Request $request) {

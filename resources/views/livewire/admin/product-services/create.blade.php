@@ -14,12 +14,12 @@
                     </div>
             
                     <div class="mt-5">
-                        <div>
+                        <div class="mb-4">
                             <label for="serviceName">Service Name:</label>
                             <input type="text" wire:model.defer="serviceName" placeholder="Service Name" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md">
                             @error('serviceName') <span class="text-red-500">{{ $message }}</span> @enderror
                         </div>
-                        <div>
+                        <div class="mb-4">
                             <label for="category_id">Category:</label>
                             <select wire:model.defer="category_id" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md">
                                 <option value="">Select Category</option>
@@ -29,19 +29,18 @@
                             </select>
                             @error('category_id') <span class="text-red-500">{{ $message }}</span> @enderror
                         </div>
-                        <div>
+                        <div class="mb-4">
                             <label for="servicePrice">Service Price:</label>
                             <input type="text" wire:model.defer="servicePrice" placeholder="Service Price" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md">
                             @error('servicePrice') <span class="text-red-500">{{ $message }}</span> @enderror
                         </div>
-                        
                     </div>
             
-                    <div class="mt-5 sm:mt-6">
-                        <button type="submit" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
+                    <div class="mt-5 sm:mt-6 sm:flex sm:flex-row-reverse">
+                        <button type="submit" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
                             {{ $updateMode ? 'Update' : 'Create' }}
                         </button>
-                        <button type="button" wire:click="closeModal" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:col-start-1 sm:text-sm">
+                        <button type="button" wire:click="closeModal" class="mt-3 inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm">
                             Cancel
                         </button>
                     </div>
@@ -50,4 +49,3 @@
         </div>
     </div>
 </div>
-

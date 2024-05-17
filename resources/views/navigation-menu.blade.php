@@ -19,9 +19,15 @@
                     <x-nav-link href="{{ route('superadmin.categories.index') }}" :active="request()->routeIs('superadmin.categories.index')">
                         {{ __('Category Management') }}
                     </x-nav-link>
-                    @endif
-                    @if(Auth::user()->role === 'admin')
+                    <x-nav-link href="{{ route('superadmin.users.index') }}" :active="request()->routeIs('superadmin.users.index')">
+                        {{ __('Role') }}
+                    </x-nav-link>
+                    @elseif(Auth::user()->role === 'admin')
                     <x-nav-link href="{{ route('admin.product_services.index') }}" :active="request()->routeIs('admin.product_services.index')">
+                        {{ __('Product Services') }}
+                    </x-nav-link>
+                    @else
+                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Product Services') }}
                     </x-nav-link>
                     @endif

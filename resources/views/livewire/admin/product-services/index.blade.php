@@ -40,9 +40,6 @@
                         Service Price
                     </th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        User ID
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Actions
                     </th>
                 </tr>
@@ -53,8 +50,7 @@
                     <td class="px-6 py-4 whitespace-nowrap">{{ $loop->iteration }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $productService->ServiceName }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $productService->category->CategoryName }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ $productService->ServicePrice }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ $productService->user->name }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Rp. {{ number_format($productService->ServicePrice, 0, ',', '.') }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <button class="text-blue-500 hover:text-blue-700" wire:click="showEditForm({{ $productService->id }})">Edit</button>
                         <button class="text-red-500 hover:text-red-700" wire:click="delete({{ $productService->id }})">Delete</button>
