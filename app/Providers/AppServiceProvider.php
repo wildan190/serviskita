@@ -9,6 +9,9 @@ use App\Repositories\UserDetails\UserDetailsRepository;
 use App\Repositories\UserDetails\UserDetailsRepositoryInterface;
 use App\Repositories\ProductServices\ProductServicesRepositoryInterface;
 use App\Repositories\ProductServices\ProductServicesRepository;
+use App\Repositories\Order\OrderRepositoryInterface;
+use App\Repositories\Order\OrderRepository;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
             ProductServicesRepositoryInterface::class,
             ProductServicesRepository::class
         );
+        $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
     }
 
     /**
